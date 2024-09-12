@@ -58,9 +58,8 @@ namespace WinFormsApp1 {
 				Debug.Assert(pos.Length <= 3); // ;)
 
 				// _moves[pos[0]] == _currentMove && _moves[pos[1]] == _currentMove && _moves[pos[2]] == _currentMove
-                if (pos.All(x => _moves[x] == _currentMove)) { // Lepsza wersja if`a z trzema równaniami
-					foreach (var btnIndex in pos)
-					{
+				if (pos.All(x => _moves[x] == _currentMove)) { // Lepsza wersja if`a z trzema równaniami
+					foreach (var btnIndex in pos) {
 						_buttons[btnIndex].BackColor = Color.DarkOrange;
 					}
 
@@ -69,7 +68,7 @@ namespace WinFormsApp1 {
 					Reset();
 
 					return true;
-                }
+				}
 			}
 
 			return false;
