@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace WinFormsApp1 {
 	public partial class Form1 : Form {
 		private new enum Move {
@@ -49,12 +51,16 @@ namespace WinFormsApp1 {
 
 		// Bombowy "algorytm", który kiedyœ znalaz³em,
 		// w 2 klasie u¿y³em go do kó³ka i krzy¿yk na stronach internetowych
-		// wieæ postanowi³em ponownie tu go wstawiæ, ¿eby nie robiæ milliard ifów
+		// wieæ postanowi³em ponownie tu go wstawiæ, ¿eby nie robiæ milliard if`ów
 		// True-wygrana; False-kontynuuj
 		private bool CheckWin() {
 			foreach (var pos in _winPos) {
-				if (_moves[pos[0]] == _currentMove && _moves[pos[1]] == _currentMove && _moves[pos[2]] == _currentMove) {
-					foreach (var btnIndex in pos) {
+				Debug.Assert(pos.Length <= 3); // ;)
+
+				// _moves[pos[0]] == _currentMove && _moves[pos[1]] == _currentMove && _moves[pos[2]] == _currentMove
+                if (pos.All(x => _moves[x] == _currentMove)) { // Lepsza wersja if`a z trzema równaniami
+					foreach (var btnIndex in pos)
+					{
 						_buttons[btnIndex].BackColor = Color.DarkOrange;
 					}
 
@@ -63,7 +69,7 @@ namespace WinFormsApp1 {
 					Reset();
 
 					return true;
-				}
+                }
 			}
 
 			return false;
