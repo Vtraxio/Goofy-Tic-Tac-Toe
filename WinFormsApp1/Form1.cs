@@ -87,13 +87,13 @@ namespace WinFormsApp1 {
 
 		private string MoveChr(Move move) {
 			switch (move) {
-                case Move.X:
-                    return "X";
-                case Move.O:
-                    return "O";
+				case Move.X:
+					return "X";
+				case Move.O:
+					return "O";
 				default:
-                    return "?";
-            }
-        }
+					return "?";
+			}
+		}
 	}
 }
