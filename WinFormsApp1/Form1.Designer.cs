@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             status = new Label();
             buttonsLayout = new TableLayoutPanel();
             button1 = new Button();
@@ -199,9 +200,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(508, 414);
             Controls.Add(tableLayoutPanel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(250, 250);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Kółko i krzyżyk";
             buttonsLayout.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();

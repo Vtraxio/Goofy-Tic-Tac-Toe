@@ -37,7 +37,7 @@ namespace WinFormsApp1 {
 			_moves[btnIndex] = _currentMove;
 
 			if (_moves.All(x => x != Move.None)) { // Remis, wszystkie pola s¹ wype³nione (nie s¹ puste)
-				MessageBox.Show("Remis");
+				MessageBox.Show("Remis", "Kó³ko i krzy¿yk");
 				Reset();
 				return;
 			}
@@ -63,7 +63,7 @@ namespace WinFormsApp1 {
 						_buttons[btnIndex].BackColor = Color.DarkOrange;
 					}
 
-					MessageBox.Show($"{MoveChr(_currentMove)} wygrywa");
+					MessageBox.Show($"{MoveChr(_currentMove)} wygrywa", "Kó³ko i krzy¿yk");
 
 					Reset();
 
