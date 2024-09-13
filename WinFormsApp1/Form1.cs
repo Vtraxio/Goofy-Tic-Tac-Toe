@@ -32,7 +32,7 @@ namespace WinFormsApp1 {
 				return;
 			}
 
-			button.Text = _currentMove == Move.X ? "X" : "O";
+			button.Text = MoveChr(_currentMove);
 			var btnIndex = _buttons.FindIndex((x) => x.Name == button.Name);
 			_moves[btnIndex] = _currentMove;
 
@@ -46,7 +46,7 @@ namespace WinFormsApp1 {
 				return;
 
 			_currentMove = _currentMove == Move.X ? Move.O : Move.X;
-			status.Text  = _currentMove == Move.X ? "Ruch X" : "Ruch O";
+			status.Text  = $"Ruch {MoveChr(_currentMove)}";
 		}
 
 		// Bombowy "algorytm", który kiedyœ znalaz³em,
@@ -63,7 +63,7 @@ namespace WinFormsApp1 {
 						_buttons[btnIndex].BackColor = Color.DarkOrange;
 					}
 
-					MessageBox.Show(_currentMove == Move.X ? "X wygrywa" : "O wygrywa");
+					MessageBox.Show($"{MoveChr(_currentMove)} wygrywa");
 
 					Reset();
 
@@ -84,5 +84,16 @@ namespace WinFormsApp1 {
 				_moves[j]             = Move.None;
 			}
 		}
+
+		private string MoveChr(Move move) {
+			switch (move) {
+                case Move.X:
+                    return "X";
+                case Move.O:
+                    return "O";
+				default:
+                    return "?";
+            }
+        }
 	}
 }
